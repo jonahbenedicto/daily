@@ -1,6 +1,6 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 08, 2025 | **Language:** Rust
+> **Updated:** June 08, 2025 | **Language:** C++
 
 ---
 
@@ -38,14 +38,15 @@ Constraints:
 
 ---
 
-## 💻 Starting Code (Rust)
+## 💻 Starting Code (C++)
 
-```rust
-impl Solution {
-    pub fn lexical_order(n: i32) -> Vec<i32> {
+```cpp
+class Solution {
+public:
+    vector<int> lexicalOrder(int n) {
         
     }
-}
+};
 ```
 
 ---
