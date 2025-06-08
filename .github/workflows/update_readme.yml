@@ -58,7 +58,7 @@ jobs:
         if git diff --staged --quiet; then
           echo "No changes to commit"
         else
-          git commit -m "🪄 Update daily LeetCode problem with ${{ inputs.language || 'rust' }} code"
+          git commit -m "🐵 Update daily LeetCode problem with ${{ inputs.language || 'rust' }} code"
           git push
         fi
       env:
