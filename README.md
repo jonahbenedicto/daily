@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 08, 2025 | **Language:** C++
+> **Updated:** June 09, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Lexicographical Numbers**
+## 📋 Today's Challenge: **K-th Smallest in Lexicographical Order**
 
 <div align="center">
 
@@ -13,40 +13,36 @@
 </div>
 
 ```
-Given an integer n, return all the numbers in the range [1, n] sorted in lexicographical order.
-
-You must write an algorithm that runs in O(n) time and uses O(1) extra space. 
+Given two integers n and k, return the k th lexicographically smallest integer in the range [1, n].
 
  
 
 Example 1:
 
-Input: n = 13
-Output: [1,10,11,12,13,2,3,4,5,6,7,8,9]
+Input: n = 13, k = 2
+Output: 10
+Explanation: The lexicographical order is [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9], so the second smallest number is 10.
 
 Example 2:
 
-Input: n = 2
-Output: [1,2]
-
- 
+Input: n = 1, k = 1
+Output: 1
 
 Constraints:
 
-1 <= n <= 5 × 10^4
+1 <= k <= n <= 10 9
 ```
 
 ---
 
-## 💻 Starting Code (C++)
+## 💻 Starting Code (Rust)
 
-```cpp
-class Solution {
-public:
-    vector<int> lexicalOrder(int n) {
+```rust
+impl Solution {
+    pub fn find_kth_number(n: i32, k: i32) -> i32 {
         
     }
-};
+}
 ```
 
 ---
@@ -55,7 +51,7 @@ public:
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/lexicographical-numbers/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/)
 
 </div>
 
