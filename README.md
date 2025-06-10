@@ -1,6 +1,6 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 11, 2025 | **Language:** Rust
+> **Updated:** June 10, 2025 | **Language:** Rust
 
 ---
 
