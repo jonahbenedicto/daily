@@ -1,7 +1,7 @@
 {
   "name": "daily-leetcode-fetcher",
   "version": "1.0.0",
-  "description": "Fetches daily LeetCode problems and generates README",
+  "description": "Enhanced LeetCode daily problem fetcher with full mathematical notation support and complete descriptions",
   "main": "dist/fetch_leetcode_problem.js",
   "scripts": {
     "build": "tsc",
@@ -11,7 +11,7 @@
     "fetch": "npm run build && npm start",
     "watch": "tsc --watch"
   },
-  "keywords": ["leetcode", "daily", "problem", "typescript"],
+  "keywords": ["leetcode", "daily", "problem", "typescript", "mathematical-notation", "subscripts", "superscripts", "full-description"],
   "author": "",
   "license": "MIT",
   "devDependencies": {

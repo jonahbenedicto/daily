@@ -90,25 +90,95 @@ async function fetchLeetCodeProblem(): Promise<void> {
     const title = problem.question.title;
     let content = problem.question.content;
     
-    // Clean HTML content properly while preserving structure
-    // First, handle block-level tags that should create line breaks
+    // Enhanced HTML content cleaning with better mathematical notation support
+    // First, preserve important mathematical structures
+    content = content.replace(/<sub>([^<]*)<\/sub>/g, '₍$1₎'); // Temporary subscript preservation
+    content = content.replace(/<sup>([^<]*)<\/sup>/g, '⁽$1⁾'); // Temporary superscript preservation
+    
+    // Handle block-level tags that should create line breaks
     content = content.replace(/<\/?(p|div|br|li|ul|ol|h[1-6])[^>]*>/g, '\n');
-    // Handle inline tags that shouldn't break words
-    content = content.replace(/<\/?(?:strong|b|em|i|code|span)[^>]*>/g, '');
-    // Remove any remaining HTML tags
+    
+    // Handle lists properly
+    content = content.replace(/<li[^>]*>/g, '• '); // Convert list items to bullet points
+    content = content.replace(/<\/li>/g, '\n');
+    
+    // Handle inline tags that shouldn't break words but may contain formatting
+    content = content.replace(/<\/?(?:strong|b)([^>]*)>/g, '**'); // Bold to markdown
+    content = content.replace(/<\/?(?:em|i)([^>]*)>/g, '*'); // Italic to markdown
+    content = content.replace(/<\/?code([^>]*)>/g, '`'); // Code to markdown
+    
+    // Remove remaining HTML tags
     content = content.replace(/<[^>]*>/g, ' ');
     
     // Clean HTML entities
-    content = content.replace(/&nbsp;/g, ' ');   // Replace non-breaking spaces
-    content = content.replace(/&lt;/g, '<');     // Replace less than
-    content = content.replace(/&gt;/g, '>');     // Replace greater than
-    content = content.replace(/&amp;/g, '&');    // Replace ampersand
-    content = content.replace(/&quot;/g, '"');   // Replace quotes
-    content = content.replace(/&#39;/g, "'");    // Replace apostrophes
+    content = content.replace(/&nbsp;/g, ' ');   // Non-breaking spaces
+    content = content.replace(/&lt;/g, '<');     // Less than
+    content = content.replace(/&gt;/g, '>');     // Greater than
+    content = content.replace(/&amp;/g, '&');    // Ampersand
+    content = content.replace(/&quot;/g, '"');   // Quotes
+    content = content.replace(/&#39;/g, "'");    // Apostrophes
+    content = content.replace(/&hellip;/g, '...'); // Ellipsis
+    content = content.replace(/&mdash;/g, '—');   // Em dash
+    content = content.replace(/&ndash;/g, '–');   // En dash
     
-    // Fix mathematical notation
-    content = content.replace(/(\d+)\s*\*\s*10\s*(\d+)/g, '$1 × 10^$2'); // Handle scientific notation
-    content = content.replace(/10(\d+)/g, '10^$1'); // Handle superscripts like 104 -> 10^4
+    // Enhanced mathematical notation support
+    // Convert preserved subscripts and superscripts to Unicode
+    content = content.replace(/₍([^₎]*)₎/g, (match, p1) => {
+      // Convert common subscript characters
+      return p1.replace(/0/g, '₀').replace(/1/g, '₁').replace(/2/g, '₂')
+               .replace(/3/g, '₃').replace(/4/g, '₄').replace(/5/g, '₅')
+               .replace(/6/g, '₆').replace(/7/g, '₇').replace(/8/g, '₈')
+               .replace(/9/g, '₉').replace(/\+/g, '₊').replace(/-/g, '₋')
+               .replace(/=/g, '₌').replace(/\(/g, '₍').replace(/\)/g, '₎')
+               .replace(/a/g, 'ₐ').replace(/e/g, 'ₑ').replace(/h/g, 'ₕ')
+               .replace(/i/g, 'ᵢ').replace(/j/g, 'ⱼ').replace(/k/g, 'ₖ')
+               .replace(/l/g, 'ₗ').replace(/m/g, 'ₘ').replace(/n/g, 'ₙ')
+               .replace(/o/g, 'ₒ').replace(/p/g, 'ₚ').replace(/r/g, 'ᵣ')
+               .replace(/s/g, 'ₛ').replace(/t/g, 'ₜ').replace(/u/g, 'ᵤ')
+               .replace(/v/g, 'ᵥ').replace(/x/g, 'ₓ');
+    });
+    
+    content = content.replace(/⁽([^⁾]*)⁾/g, (match, p1) => {
+      // Convert common superscript characters
+      return p1.replace(/0/g, '⁰').replace(/1/g, '¹').replace(/2/g, '²')
+               .replace(/3/g, '³').replace(/4/g, '⁴').replace(/5/g, '⁵')
+               .replace(/6/g, '⁶').replace(/7/g, '⁷').replace(/8/g, '⁸')
+               .replace(/9/g, '⁹').replace(/\+/g, '⁺').replace(/-/g, '⁻')
+               .replace(/=/g, '⁼').replace(/\(/g, '⁽').replace(/\)/g, '⁾')
+               .replace(/n/g, 'ⁿ').replace(/i/g, 'ⁱ').replace(/th/g, 'ᵗʰ');
+    });
+    
+    // Handle common mathematical expressions
+    content = content.replace(/(\d+)\s*\*\s*10\s*\^?\s*(\d+)/g, '$1 × 10^$2'); // Scientific notation
+    content = content.replace(/(\d+)\s*\^\s*(\d+)/g, '$1^$2'); // General exponents
+    content = content.replace(/10(\d+)/g, (match, p1) => {
+      // Only convert if it looks like scientific notation (10^4, not things like 100)
+      if (p1.length === 1 || (p1.length === 2 && parseInt(p1) > 10)) {
+        return `10^${p1}`;
+      }
+      return match;
+    });
+    content = content.replace(/2\^(\d+)/g, '2^$1'); // Powers of 2
+    content = content.replace(/O\(([^)]+)\)/g, 'O($1)'); // Big O notation
+    content = content.replace(/log\s*(\d+)/g, 'log₂'); // Logarithms
+    content = content.replace(/\blog\b/g, 'log'); // General log
+    
+    // Handle fractions and mathematical symbols
+    content = content.replace(/<=>/g, '⟺'); // If and only if
+    content = content.replace(/<=/g, '≤');  // Less than or equal
+    content = content.replace(/>=/g, '≥');  // Greater than or equal
+    content = content.replace(/!=/g, '≠');  // Not equal
+    content = content.replace(/\+-/g, '±'); // Plus minus
+    content = content.replace(/sqrt/g, '√'); // Square root
+    content = content.replace(/infinity/g, '∞'); // Infinity
+    content = content.replace(/sum/g, '∑');  // Summation
+    content = content.replace(/product/g, '∏'); // Product
+    content = content.replace(/delta/g, 'Δ'); // Delta
+    content = content.replace(/theta/g, 'θ'); // Theta
+    content = content.replace(/pi/g, 'π');   // Pi
+    content = content.replace(/alpha/g, 'α'); // Alpha
+    content = content.replace(/beta/g, 'β');  // Beta
+    content = content.replace(/gamma/g, 'γ'); // Gamma
     
     // Clean up whitespace while preserving meaningful line breaks
     content = content.replace(/[ \t]+/g, ' ');  // Replace multiple spaces/tabs with single space
@@ -146,7 +216,7 @@ async function fetchLeetCodeProblem(): Promise<void> {
 </div>
 
 \`\`\`
-${content.length > 500 ? content.substring(0, 500) + '...' : content}
+${content}
 \`\`\`
 
 ---

@@ -13,31 +13,56 @@
 </div>
 
 ```
-You are given a string s consisting of lowercase English letters.
+You are given a string `s` consisting of lowercase English letters.
 
-Your task is to find the maximum difference diff = freq(a 1) - freq(a 2 ) between the frequency of characters a 1 and a 2 in the string such that:
+Your task is to find the **maximum** difference `diff = freq(a₁₎ - freq(a₂)` between the frequency of characters `a₁` and `a₂` in the string such that:
 
-a 1 has an odd frequency in the string.
-
- 
-a 2 has an even frequency in the string.
-
-Return this maximum difference.
+`a₁` has an **odd frequency** in the string.
 
  
+`a₂` has an **even frequency** in the string.
 
-Example 1:
-
-Input: s = "aaaaabbc"
-
-Output: 3
-
-Explanation:
-
-The character 'a' has an odd frequency of 5 , and 'b' has an even frequency of 2 .
+Return this **maximum** difference.
 
  
-The maximum differ...
+
+**Example 1:**
+
+**Input:** s = "aaaaabbc" 
+
+**Output:** 3
+
+**Explanation:**
+
+The character `'a'` has an **odd frequency** of ` 5 ` , and `'b'` has an **even frequency** of ` 2 `.
+
+ 
+The maximum difference is `5 - 2 = 3`.
+
+**Example 2:**
+
+**Input:** s = "abcabcab" 
+
+**Output:** 1
+
+**Explanation:**
+
+The character `'a'` has an **odd frequency** of ` 3 ` , and `'c'` has an **even frequency** of 2 .
+
+ 
+The maximum difference is `3 - 2 = 1`.
+
+ 
+
+**Constraints:**
+
+`3 ≤ s.length ≤ 10^0`
+
+ 
+`s` consists only of lowercase English letters.
+
+ 
+`s` contains at least one character with an odd frequency and one with an even frequency.
 ```
 
 ---
