@@ -95,6 +95,11 @@ async function fetchLeetCodeProblem(): Promise<void> {
     content = content.replace(/<sub>([^<]*)<\/sub>/g, '₍$1₎'); // Temporary subscript preservation
     content = content.replace(/<sup>([^<]*)<\/sup>/g, '⁽$1⁾'); // Temporary superscript preservation
     
+    // Handle images - convert to Markdown format
+    content = content.replace(/<img[^>]*src=["']([^"']*)["'][^>]*alt=["']([^"']*)["'][^>]*>/gi, '![$2]($1)');
+    content = content.replace(/<img[^>]*alt=["']([^"']*)["'][^>]*src=["']([^"']*)["'][^>]*>/gi, '![$1]($2)');
+    content = content.replace(/<img[^>]*src=["']([^"']*)["'][^>]*>/gi, '![]($1)'); // Images without alt text
+    
     // Handle block-level tags that should create line breaks
     content = content.replace(/<\/?(p|div|br|li|ul|ol|h[1-6])[^>]*>/g, '\n');
     
