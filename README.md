@@ -1,6 +1,6 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 11, 2025 | **Language:** TypeScript
+> **Updated:** June 11, 2025 | **Language:** Rust
 
 ---
 
@@ -42,12 +42,14 @@ The maximum differ...
 
 ---
 
-## 💻 Starting Code (TypeScript)
+## 💻 Starting Code (Rust)
 
-```typescript
-function maxDifference(s: string): number {
-    
-};
+```rust
+impl Solution {
+    pub fn max_difference(s: String) -> i32 {
+        
+    }
+}
 ```
 
 ---
