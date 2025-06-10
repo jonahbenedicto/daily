@@ -215,9 +215,7 @@ async function fetchLeetCodeProblem(): Promise<void> {
 
 </div>
 
-\`\`\`
 ${content}
-\`\`\`
 
 ---
 

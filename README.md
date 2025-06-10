@@ -1,6 +1,6 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 10, 2025 | **Language:** Rust
+> **Updated:** June 11, 2025 | **Language:** Rust
 
 ---
 
@@ -12,7 +12,6 @@
 
 </div>
 
-```
 You are given a string `s` consisting of lowercase English letters.
 
 Your task is to find the **maximum** difference `diff = freq(a₁₎ - freq(a₂)` between the frequency of characters `a₁` and `a₂` in the string such that:
@@ -63,7 +62,6 @@ The maximum difference is `3 - 2 = 1`.
 
  
 `s` contains at least one character with an odd frequency and one with an even frequency.
-```
 
 ---
 
