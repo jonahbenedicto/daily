@@ -1,6 +1,6 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 10, 2025 | **Language:** Rust
+> **Updated:** June 11, 2025 | **Language:** TypeScript
 
 ---
 
@@ -13,9 +13,9 @@
 </div>
 
 ```
-You are given a string s consisting of lowercase English letters. 
+You are given a string s consisting of lowercase English letters.
 
-Your task is to find the maximum difference diff = a 1 - a 2 between the frequency of characters a 1 and a 2 in the string such that:
+Your task is to find the maximum difference diff = freq(a 1) - freq(a 2 ) between the frequency of characters a 1 and a 2 in the string such that:
 
 a 1 has an odd frequency in the string.
 
@@ -37,19 +37,17 @@ Explanation:
 The character 'a' has an odd frequency of 5 , and 'b' has an even frequency of 2 .
 
  
-The maximum difference is 5 - ...
+The maximum differ...
 ```
 
 ---
 
-## 💻 Starting Code (Rust)
+## 💻 Starting Code (TypeScript)
 
-```rust
-impl Solution {
-    pub fn max_difference(s: String) -> i32 {
-        
-    }
-}
+```typescript
+function maxDifference(s: string): number {
+    
+};
 ```
 
 ---

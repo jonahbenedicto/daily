@@ -1,0 +1,25 @@
+{
+  "name": "daily-leetcode-fetcher",
+  "version": "1.0.0",
+  "description": "Fetches daily LeetCode problems and generates README",
+  "main": "dist/fetch_leetcode_problem.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/fetch_leetcode_problem.js",
+    "dev": "ts-node fetch_leetcode_problem.ts",
+    "clean": "rm -rf dist",
+    "fetch": "npm run build && npm start",
+    "watch": "tsc --watch"
+  },
+  "keywords": ["leetcode", "daily", "problem", "typescript"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
