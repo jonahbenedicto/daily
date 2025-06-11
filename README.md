@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 10, 2025 | **Language:** Rust
+> **Updated:** June 11, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Maximum Difference Between Even and Odd Frequency I**
+## 📋 Today's Challenge: **Maximum Difference Between Even and Odd Frequency II**
 
 <div align="center">
 
@@ -12,56 +12,53 @@
 
 </div>
 
-You are given a string `s` consisting of lowercase English letters.
+You are given a string `s` and an integer `k`. Your task is to find the **maximum** difference between the frequency of **two** characters, `freq[a] - freq[b]`, in a substring `subs` of `s`, such that:
 
-Your task is to find the **maximum** difference `diff = freq(a₁₎ - freq(a₂)` between the frequency of characters `a₁` and `a₂` in the string such that:
+`subs` has a size of **at least** `k`.
 
-`a₁` has an **odd frequency** in the string.
+Character `a` has an *odd frequency* in `subs`.
 
- 
-`a₂` has an **even frequency** in the string.
+Character `b` has an *even frequency* in `subs`.
 
-Return this **maximum** difference.
+Return the **maximum** difference.
 
- 
+**Note** that `subs` can contain more than 2 **distinct** characters.
 
 **Example 1:**
 
-**Input:** s = "aaaaabbc" 
+**Input:** s = "12233", k = 4
 
-**Output:** 3
+**Output:** -1
 
 **Explanation:**
 
-The character `'a'` has an **odd frequency** of ` 5 ` , and `'b'` has an **even frequency** of ` 2 `.
-
- 
-The maximum difference is `5 - 2 = 3`.
+For the substring `"12233"`, the frequency of `'1'` is 1 and the frequency of `'3'` is 2. The difference is `1 - 2 = -1`.
 
 **Example 2:**
 
-**Input:** s = "abcabcab" 
+**Input:** s = "1122211", k = 3
 
 **Output:** 1
 
 **Explanation:**
 
-The character `'a'` has an **odd frequency** of ` 3 ` , and `'c'` has an **even frequency** of 2 .
+For the substring `"11222"`, the frequency of `'2'` is 3 and the frequency of `'1'` is 2. The difference is `3 - 2 = 1`.
 
- 
-The maximum difference is `3 - 2 = 1`.
+**Example 3:**
 
- 
+**Input:** s = "110", k = 3
+
+**Output:** -1
 
 **Constraints:**
 
-`3 ≤ s.length ≤ 10^0`
+`3 ≤ s.length ≤ 3 * 10⁴`
 
- 
-`s` consists only of lowercase English letters.
+`s` consists only of digits `'0'` to `'4'`.
 
- 
-`s` contains at least one character with an odd frequency and one with an even frequency.
+The input is generated that at least one substring has a character with an even frequency and a character with an odd frequency.
+
+`1 ≤ k ≤ s.length`
 
 ---
 
@@ -69,7 +66,7 @@ The maximum difference is `3 - 2 = 1`.
 
 ```rust
 impl Solution {
-    pub fn max_difference(s: String) -> i32 {
+    pub fn max_difference(s: String, k: i32) -> i32 {
         
     }
 }
@@ -81,7 +78,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/maximum-difference-between-even-and-odd-frequency-i/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/maximum-difference-between-even-and-odd-frequency-ii/)
 
 </div>
 

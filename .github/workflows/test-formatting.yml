@@ -1,0 +1,74 @@
+name: Test LeetCode Problem Formatting
+
+on:
+  workflow_dispatch:
+    inputs:
+      problem_slug:
+        description: 'LeetCode problem slug to test (e.g., valid-sudoku). Leave empty to test all problems.'
+        required: false
+        type: string
+  push:
+    paths:
+      - 'fetch_leetcode_problem.ts'
+      - 'tests/**'
+  pull_request:
+    paths:
+      - 'fetch_leetcode_problem.ts'
+      - 'tests/**'
+
+jobs:
+  test-formatting:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build TypeScript
+      run: npm run build
+
+    - name: Test specific problem
+      if: ${{ github.event.inputs.problem_slug != '' }}
+      run: |
+        echo "🧪 Testing specific problem: ${{ github.event.inputs.problem_slug }}"
+        npx ts-node tests/test-problem.ts "${{ github.event.inputs.problem_slug }}"
+
+    - name: Test all problems
+      if: ${{ github.event.inputs.problem_slug == '' }}
+      run: |
+        echo "🧪 Running all formatting tests"
+        npx ts-node tests/test-problem.ts
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results-${{ github.run_number }}
+        path: |
+          tests/output/
+          README.md
+        retention-days: 30
+
+    - name: Display test summary
+      if: always()
+      run: |
+        echo "📊 Test Results Summary"
+        echo "======================="
+        if [ -f "tests/output/test-report.json" ]; then
+          cat tests/output/test-report.json | jq '.summary // {totalTests, successful, failed}'
+        else
+          echo "Test report not found"
+        fi
+        
+        echo ""
+        echo "📁 Generated Files:"
+        ls -la tests/output/ || echo "No output files generated"

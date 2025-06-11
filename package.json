@@ -9,14 +9,33 @@
     "dev": "ts-node fetch_leetcode_problem.ts",
     "clean": "rm -rf dist",
     "fetch": "npm run build && npm start",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "test:problem": "npm run build && node test-simple.js",
+    "test:valid-sudoku": "npm run build && node test-simple.js valid-sudoku",
+    "test:spiral-matrix": "npm run build && node test-simple.js spiral-matrix",
+    "test:game-of-life": "npm run build && node test-simple.js game-of-life",
+    "test:rotate-image": "npm run build && node test-simple.js rotate-image",
+    "test:set-matrix-zeroes": "npm run build && node test-simple.js set-matrix-zeroes",
+    "test:search-a-2d-matrix": "npm run build && node test-simple.js search-a-2d-matrix",
+    "test:all-matrices": "node test-all-matrices.js",
+    "test:formatting": "node test-formatting-intelligence.js",
+    "test:whitespace": "node test-whitespace-detection.js"
   },
-  "keywords": ["leetcode", "daily", "problem", "typescript", "mathematical-notation", "subscripts", "superscripts", "full-description"],
+  "keywords": [
+    "leetcode",
+    "daily",
+    "problem",
+    "typescript",
+    "mathematical-notation",
+    "subscripts",
+    "superscripts",
+    "full-description"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "ts-node": "^10.9.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.0.0"
   },
   "dependencies": {
