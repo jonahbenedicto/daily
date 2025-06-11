@@ -1,8 +1,12 @@
 {
   "problemSlug": "search-a-2d-matrix",
-  "timestamp": "2025-06-11T01:42:51.563Z",
+  "problemTitle": "Search a 2D Matrix",
+  "timestamp": "2025-06-11T01:48:05.304Z",
   "hasMatricesInPre": true,
   "hasBoldLabels": true,
   "hasImages": true,
-  "summary": "Matrices in <pre>: true, Bold labels: true, Images: true"
+  "hasDoublePreTags": false,
+  "hasUnicodeSymbols": true,
+  "success": true,
+  "summary": "✅ Matrices: true, Bold: true, Images: true, No Double Pre: true"
 }

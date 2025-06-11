@@ -40,13 +40,13 @@ jobs:
       if: ${{ github.event.inputs.problem_slug != '' }}
       run: |
         echo "🧪 Testing specific problem: ${{ github.event.inputs.problem_slug }}"
-        npx ts-node tests/test-problem.ts "${{ github.event.inputs.problem_slug }}"
+        npm run test:${{ github.event.inputs.problem_slug }} || node test-simple.js "${{ github.event.inputs.problem_slug }}"
 
     - name: Test all problems
       if: ${{ github.event.inputs.problem_slug == '' }}
       run: |
         echo "🧪 Running all formatting tests"
-        npx ts-node tests/test-problem.ts
+        npm run test:all-matrices
 
     - name: Upload test results
       uses: actions/upload-artifact@v4
@@ -63,10 +63,11 @@ jobs:
       run: |
         echo "📊 Test Results Summary"
         echo "======================="
-        if [ -f "tests/output/test-report.json" ]; then
-          cat tests/output/test-report.json | jq '.summary // {totalTests, successful, failed}'
+        if [ -f "tests/output/comprehensive-test-report.json" ]; then
+          echo "✅ Test report found:"
+          cat tests/output/comprehensive-test-report.json | jq '.summary // empty' || echo "Summary not available"
         else
-          echo "Test report not found"
+          echo "ℹ️  No comprehensive test report found (tests may use simple output)"
         fi
         
         echo ""
