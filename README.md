@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 12, 2025 | **Language:** Rust
+> **Updated:** June 13, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Maximum Difference Between Adjacent Elements in a Circular Array**
+## 📋 Today's Challenge: **Minimize the Maximum Difference of Pairs**
 
 <div align="center">
 
@@ -12,35 +12,36 @@
 
 </div>
 
-Given a **circular** array `nums`, find the **maximum** absolute difference between adjacent elements.
+You are given a **0-indexed** integer array `nums` and an integer `p`. Find `p` pairs of indices of `nums` such that the **maximum** difference amongst all the pairs is **minimized**. Also, ensure no index appears more than once amongst the `p` pairs.
 
-**Note**: In a circular array, the first and last elements are adjacent.
+Note that for a pair of elements at the index `i` and `j`, the difference of this pair is `|nums[i] - nums[j]|`, where `|x|` represents the **absolute** **value** of `x`.
+
+Return *the **minimum** **maximum** difference among all *`p` *pairs.* We define the maximum of an empty set to be zero.
 
 **Example 1:**
 
-**Input:** nums = [1,2,4]
+**Input:** nums = [10,1,2,7,1,3], p = 2
 
-**Output:** 3
+**Output:** 1
 
-**Explanation:**
-
-Because `nums` is circular, `nums[0]` and `nums[2]` are adjacent. They have the maximum absolute difference of `|4 - 1| = 3`.
+Explanation: The first pair is formed from the indices 1 and 4, and the second pair is formed from the indices 2 and 5.
+The maximum difference is max(|nums[1] - nums[4]|, |nums[2] - nums[5]|) = max(0, 1) = 1. Therefore, we return 1.
 
 **Example 2:**
 
-**Input:** nums = [-5,-10,-5]
+**Input:** nums = [4,2,1,2], p = 1
 
-**Output:** 5
+**Output:** 0
 
-**Explanation:**
-
-The adjacent elements `nums[0]` and `nums[1]` have the maximum absolute difference of `|-5 - (-10)| = 5`.
+Explanation: Let the indices 1 and 3 form a pair. The difference of that pair is |2 - 2| = 0, which is the minimum we can attain.
 
 **Constraints:**
 
-`2 ≤ nums.length ≤ 10^0`
+`1 ≤ nums.length ≤ 10⁵`
 
-`-10^0 ≤ nums[i] ≤ 10^0`
+`0 ≤ nums[i] ≤ 10⁹`
+
+`0 ≤ p ≤ (nums.length)/2`
 
 ---
 
@@ -48,7 +49,7 @@ The adjacent elements `nums[0]` and `nums[1]` have the maximum absolute differen
 
 ```rust
 impl Solution {
-    pub fn max_adjacent_distance(nums: Vec<i32>) -> i32 {
+    pub fn minimize_max(nums: Vec<i32>, p: i32) -> i32 {
         
     }
 }
@@ -60,7 +61,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/maximum-difference-between-adjacent-elements-in-a-circular-array/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/minimize-the-maximum-difference-of-pairs/)
 
 </div>
 
