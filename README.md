@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 13, 2025 | **Language:** Rust
+> **Updated:** June 14, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Minimize the Maximum Difference of Pairs**
+## 📋 Today's Challenge: **Maximum Difference by Remapping a Digit**
 
 <div align="center">
 
@@ -12,36 +12,44 @@
 
 </div>
 
-You are given a **0-indexed** integer array `nums` and an integer `p`. Find `p` pairs of indices of `nums` such that the **maximum** difference amongst all the pairs is **minimized**. Also, ensure no index appears more than once amongst the `p` pairs.
+You are given an integer `num`. You know that Bob will sneakily **remap** one of the `10` possible digits (`0` to `9`) to another digit.
 
-Note that for a pair of elements at the index `i` and `j`, the difference of this pair is `|nums[i] - nums[j]|`, where `|x|` represents the **absolute** **value** of `x`.
+Return *the difference between the maximum and minimum values Bob can make by remapping **exactly** **one** digit in *`num`.
 
-Return *the **minimum** **maximum** difference among all *`p` *pairs.* We define the maximum of an empty set to be zero.
+**Notes:**
+
+When Bob remaps a digit d1 to another digit d2 , Bob replaces all occurrences of `d1` in `num` with `d2`.
+
+Bob can remap a digit to itself, in which case `num` does not change.
+
+Bob can remap different digits for obtaining minimum and maximum values respectively.
+
+The resulting number after remapping can contain leading zeroes.
 
 **Example 1:**
 
-**Input:** nums = [10,1,2,7,1,3], p = 2
+**Input:** num = 11891
 
-**Output:** 1
+**Output:** 99009
 
-Explanation: The first pair is formed from the indices 1 and 4, and the second pair is formed from the indices 2 and 5.
-The maximum difference is max(|nums[1] - nums[4]|, |nums[2] - nums[5]|) = max(0, 1) = 1. Therefore, we return 1.
+Explanation:
+To achieve the maximum value, Bob can remap the digit 1 to the digit 9 to yield 99899.
+To achieve the minimum value, Bob can remap the digit 1 to the digit 0, yielding 890.
+The difference between these two numbers is 99009.
 
 **Example 2:**
 
-**Input:** nums = [4,2,1,2], p = 1
+**Input:** num = 90
 
-**Output:** 0
+**Output:** 99
 
-Explanation: Let the indices 1 and 3 form a pair. The difference of that pair is |2 - 2| = 0, which is the minimum we can attain.
+Explanation:
+The maximum value that can be returned by the function is 99 (if 0 is replaced by 9) and the minimum value that can be returned by the function is 0 (if 9 is replaced by 0).
+Thus, we return 99.
 
 **Constraints:**
 
-`1 ≤ nums.length ≤ 10⁵`
-
-`0 ≤ nums[i] ≤ 10⁹`
-
-`0 ≤ p ≤ (nums.length)/2`
+`1 ≤ num ≤ 10⁸`
 
 ---
 
@@ -49,7 +57,7 @@ Explanation: Let the indices 1 and 3 form a pair. The difference of that pair is
 
 ```rust
 impl Solution {
-    pub fn minimize_max(nums: Vec<i32>, p: i32) -> i32 {
+    pub fn min_max_difference(num: i32) -> i32 {
         
     }
 }
@@ -61,7 +69,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/minimize-the-maximum-difference-of-pairs/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/maximum-difference-by-remapping-a-digit/)
 
 </div>
 
