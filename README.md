@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 15, 2025 | **Language:** Rust
+> **Updated:** June 16, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Max Difference You Can Get From Changing an Integer**
+## 📋 Today's Challenge: **Maximum Difference Between Increasing Elements**
 
 <div align="center">
 
@@ -12,43 +12,45 @@
 
 </div>
 
-You are given an integer `num`. You will apply the following steps to `num` **two** separate times:
+Given a **0-indexed** integer array `nums` of size `n`, find the **maximum difference** between `nums[i]` and `nums[j]` (i.e., `nums[j] - nums[i]`), such that `0 ≤ i < j < n` and `nums[i] < nums[j]`.
 
-Pick a digit `x (0 ≤ x ≤ 9)`.
-
-Pick another digit `y (0 ≤ y ≤ 9)`. Note `y` can be equal to `x`.
-
-Replace all the occurrences of `x` in the decimal representation of `num` by `y`.
-
-Let `a` and `b` be the two results from applying the operation to `num` *independently*.
-
-Return *the max difference* between `a` and `b`.
-
-Note that neither `a` nor `b` may have any leading zeros, and **must not** be 0.
+Return *the **maximum difference**. *If no such `i` and `j` exists, return `-1`.
 
 **Example 1:**
 
-**Input:** num = 555
+**Input:** nums = [7,1,5,4]
 
-**Output:** 888
+**Output:** 4
 
-Explanation: The first time pick x = 5 and y = 9 and store the new integer in a.
-The second time pick x = 5 and y = 1 and store the new integer in b.
-We have now a = 999 and b = 111 and max difference = 888
+Explanation:
+The maximum difference occurs with i = 1 and j = 2, nums[j] - nums[i] = 5 - 1 = 4.
+Note that with i = 1 and j = 0, the difference nums[j] - nums[i] = 7 - 1 = 6, but i > j, so it is not valid.
 
 **Example 2:**
 
-**Input:** num = 9
+**Input:** nums = [9,4,3,2]
 
-**Output:** 8
+**Output:** -1
 
-Explanation: The first time pick x = 9 and y = 9 and store the new integer in a.
-The second time pick x = 9 and y = 1 and store the new integer in b.
-We have now a = 9 and b = 1 and max difference = 8
+Explanation:
+There is no i and j such that i < j and nums[i] < nums[j].
+
+**Example 3:**
+
+**Input:** nums = [1,5,2,10]
+
+**Output:** 9
+
+Explanation:
+The maximum difference occurs with i = 0 and j = 3, nums[j] - nums[i] = 10 - 1 = 9.
 
 **Constraints:**
 
-`1 ≤ num ≤ 10⁸`
+`n == nums.length`
+
+`2 ≤ n ≤ 1000`
+
+`1 ≤ nums[i] ≤ 10⁹`
 
 ---
 
@@ -56,7 +58,7 @@ We have now a = 9 and b = 1 and max difference = 8
 
 ```rust
 impl Solution {
-    pub fn max_diff(num: i32) -> i32 {
+    pub fn maximum_difference(nums: Vec<i32>) -> i32 {
         
     }
 }
@@ -68,7 +70,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/max-difference-you-can-get-from-changing-an-integer/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/maximum-difference-between-increasing-elements/)
 
 </div>
 
