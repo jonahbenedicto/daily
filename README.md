@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 16, 2025 | **Language:** Rust
+> **Updated:** June 17, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Maximum Difference Between Increasing Elements**
+## 📋 Today's Challenge: **Count the Number of Arrays with K Matching Adjacent Elements**
 
 <div align="center">
 
@@ -12,45 +12,57 @@
 
 </div>
 
-Given a **0-indexed** integer array `nums` of size `n`, find the **maximum difference** between `nums[i]` and `nums[j]` (i.e., `nums[j] - nums[i]`), such that `0 ≤ i < j < n` and `nums[i] < nums[j]`.
+You are given three integers `n`, `m`, `k`. A **good array** `arr` of size `n` is defined as follows:
 
-Return *the **maximum difference**. *If no such `i` and `j` exists, return `-1`.
+Each element in `arr` is in the **inclusive** range `[1, m]`.
+
+*Exactly* `k` indices `i` (where `1 ≤ i < n`) satisfy the condition `arr[i - 1] == arr[i]`.
+
+Return the number of **good arrays** that can be formed.
+
+Since the answer may be very large, return it **modulo **`10⁹ + 7`.
 
 **Example 1:**
 
-**Input:** nums = [7,1,5,4]
+**Input:** n = 3, m = 2, k = 1
 
 **Output:** 4
 
-Explanation:
-The maximum difference occurs with i = 1 and j = 2, nums[j] - nums[i] = 5 - 1 = 4.
-Note that with i = 1 and j = 0, the difference nums[j] - nums[i] = 7 - 1 = 6, but i > j, so it is not valid.
+**Explanation:**
+
+There are 4 good arrays. They are `[1, 1, 2]`, `[1, 2, 2]`, `[2, 1, 1]` and `[2, 2, 1]`.
+
+Hence, the answer is 4.
 
 **Example 2:**
 
-**Input:** nums = [9,4,3,2]
+**Input:** n = 4, m = 2, k = 2
 
-**Output:** -1
+**Output:** 6
 
-Explanation:
-There is no i and j such that i < j and nums[i] < nums[j].
+**Explanation:**
+
+The good arrays are `[1, 1, 1, 2]`, `[1, 1, 2, 2]`, `[1, 2, 2, 2]`, `[2, 1, 1, 1]`, `[2, 2, 1, 1]` and `[2, 2, 2, 1]`.
+
+Hence, the answer is 6.
 
 **Example 3:**
 
-**Input:** nums = [1,5,2,10]
+**Input:** n = 5, m = 2, k = 0
 
-**Output:** 9
+**Output:** 2
 
-Explanation:
-The maximum difference occurs with i = 0 and j = 3, nums[j] - nums[i] = 10 - 1 = 9.
+**Explanation:**
+
+The good arrays are `[1, 2, 1, 2, 1]` and `[2, 1, 2, 1, 2]`. Hence, the answer is 2.
 
 **Constraints:**
 
-`n == nums.length`
+`1 ≤ n ≤ 10⁵`
 
-`2 ≤ n ≤ 1000`
+`1 ≤ m ≤ 10⁵`
 
-`1 ≤ nums[i] ≤ 10⁹`
+`0 ≤ k ≤ n - 1`
 
 ---
 
@@ -58,7 +70,7 @@ The maximum difference occurs with i = 0 and j = 3, nums[j] - nums[i] = 10 - 1 =
 
 ```rust
 impl Solution {
-    pub fn maximum_difference(nums: Vec<i32>) -> i32 {
+    pub fn count_good_arrays(n: i32, m: i32, k: i32) -> i32 {
         
     }
 }
@@ -70,7 +82,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/maximum-difference-between-increasing-elements/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/count-the-number-of-arrays-with-k-matching-adjacent-elements/)
 
 </div>
 
