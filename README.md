@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 17, 2025 | **Language:** Rust
+> **Updated:** June 18, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Count the Number of Arrays with K Matching Adjacent Elements**
+## 📋 Today's Challenge: **Divide Array Into Arrays With Max Difference**
 
 <div align="center">
 
@@ -12,57 +12,61 @@
 
 </div>
 
-You are given three integers `n`, `m`, `k`. A **good array** `arr` of size `n` is defined as follows:
+You are given an integer array `nums` of size `n` where `n` is a multiple of 3 and a positive integer `k`.
 
-Each element in `arr` is in the **inclusive** range `[1, m]`.
+Divide the array `nums` into `n / 3` arrays of size **3** satisfying the following condition:
 
-*Exactly* `k` indices `i` (where `1 ≤ i < n`) satisfy the condition `arr[i - 1] == arr[i]`.
+The difference between **any** two elements in one array is **less than or equal** to `k`.
 
-Return the number of **good arrays** that can be formed.
-
-Since the answer may be very large, return it **modulo **`10⁹ + 7`.
+Return a **2D** array containing the arrays. If it is impossible to satisfy the conditions, return an empty array. And if there are multiple answers, return **any** of them.
 
 **Example 1:**
 
-**Input:** n = 3, m = 2, k = 1
+**Input:** nums = [1,3,4,8,7,9,3,5,1], k = 2
 
-**Output:** 4
+**Output:** <pre>[[1,1,3],[3,4,5],[7,8,9]]</pre>
 
 **Explanation:**
 
-There are 4 good arrays. They are `[1, 1, 2]`, `[1, 2, 2]`, `[2, 1, 1]` and `[2, 2, 1]`.
-
-Hence, the answer is 4.
+The difference between any two elements in each array is less than or equal to 2.
 
 **Example 2:**
 
-**Input:** n = 4, m = 2, k = 2
+**Input:** nums = [2,4,2,2,5,2], k = 2
 
-**Output:** 6
+**Output:** []
 
 **Explanation:**
 
-The good arrays are `[1, 1, 1, 2]`, `[1, 1, 2, 2]`, `[1, 2, 2, 2]`, `[2, 1, 1, 1]`, `[2, 2, 1, 1]` and `[2, 2, 2, 1]`.
+Different ways to divide `nums` into 2 arrays of size 3 are:
 
-Hence, the answer is 6.
+<pre>[[2,2,2],[2,4,5]]</pre> (and its permutations)
+
+<pre>[[2,2,4],[2,2,5]]</pre> (and its permutations)
+
+Because there are four 2s there will be an array with the elements 2 and 5 no matter how we divide it. since `5 - 2 = 3 > k`, the condition is not satisfied and so there is no valid division.
 
 **Example 3:**
 
-**Input:** n = 5, m = 2, k = 0
+**Input:** nums = [4,2,9,8,2,12,7,12,10,5,8,5,5,7,9,2,5,11], k = 14
 
-**Output:** 2
+**Output:** <pre>[[2,2,12],[4,8,5],[5,9,7],[7,8,5],[5,9,10],[11,12,2]]</pre>
 
 **Explanation:**
 
-The good arrays are `[1, 2, 1, 2, 1]` and `[2, 1, 2, 1, 2]`. Hence, the answer is 2.
+The difference between any two elements in each array is less than or equal to 14.
 
 **Constraints:**
 
+`n == nums.length`
+
 `1 ≤ n ≤ 10⁵`
 
-`1 ≤ m ≤ 10⁵`
+`n `is a multiple of 3
 
-`0 ≤ k ≤ n - 1`
+`1 ≤ nums[i] ≤ 10⁵`
+
+`1 ≤ k ≤ 10⁵`
 
 ---
 
@@ -70,7 +74,7 @@ The good arrays are `[1, 2, 1, 2, 1]` and `[2, 1, 2, 1, 2]`. Hence, the answer i
 
 ```rust
 impl Solution {
-    pub fn count_good_arrays(n: i32, m: i32, k: i32) -> i32 {
+    pub fn divide_array(nums: Vec<i32>, k: i32) -> Vec<Vec<i32>> {
         
     }
 }
@@ -82,7 +86,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/count-the-number-of-arrays-with-k-matching-adjacent-elements/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/divide-array-into-arrays-with-max-difference/)
 
 </div>
 
