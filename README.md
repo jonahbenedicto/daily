@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 19, 2025 | **Language:** Rust
+> **Updated:** June 20, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Partition Array Such That Maximum Difference Is K**
+## 📋 Today's Challenge: **Maximum Manhattan Distance After K Changes**
 
 <div align="center">
 
@@ -12,56 +12,78 @@
 
 </div>
 
-You are given an integer array `nums` and an integer `k`. You may partition `nums` into one or more **subsequences** such that each element in `nums` appears in **exactly** one of the subsequences.
+You are given a string `s` consisting of the characters `'N'`, `'S'`, `'E'`, and `'W'`, where `s[i]` indicates movements in an infinite grid:
 
-Return *the **minimum **number of subsequences needed such that the difference between the maximum and minimum values in each subsequence is **at most** *`k`*.*
+`'N'` : Move north by 1 unit.
 
-A **subsequence** is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.
+`'S'` : Move south by 1 unit.
+
+`'E'` : Move east by 1 unit.
+
+`'W'` : Move west by 1 unit.
+
+Initially, you are at the origin `(0, 0)`. You can change **at most** `k` characters to any of the four directions.
+
+Find the **maximum** **Manhattan distance** from the origin that can be achieved **at any time** while performing the movements **in order**.
+
+The **Manhattan Distance** between two cells `(xᵢ, yᵢ)` and `(xⱼ, yⱼ)` is `|xᵢ - xⱼ| + |yᵢ - yⱼ|`.
 
 **Example 1:**
 
-**Input:** nums = [3,6,1,2,5], k = 2
-
-**Output:** 2
-
-Explanation:
-We can partition nums into the two subsequences [3,1,2] and [6,5].
-The difference between the maximum and minimum value in the first subsequence is 3 - 1 = 2.
-The difference between the maximum and minimum value in the second subsequence is 6 - 5 = 1.
-Since two subsequences were created, we return 2. It can be shown that 2 is the minimum number of subsequences needed.
-
-**Example 2:**
-
-**Input:** nums = [1,2,3], k = 1
-
-**Output:** 2
-
-Explanation:
-We can partition nums into the two subsequences [1,2] and [3].
-The difference between the maximum and minimum value in the first subsequence is 2 - 1 = 1.
-The difference between the maximum and minimum value in the second subsequence is 3 - 3 = 0.
-Since two subsequences were created, we return 2. Note that another optimal solution is to partition nums into the two subsequences [1] and [2,3].
-
-**Example 3:**
-
-**Input:** nums = [2,2,4,5], k = 0
+**Input:** s = "NWSE", k = 1
 
 **Output:** 3
 
-Explanation:
-We can partition nums into the three subsequences [2,2], [4], and [5].
-The difference between the maximum and minimum value in the first subsequences is 2 - 2 = 0.
-The difference between the maximum and minimum value in the second subsequences is 4 - 4 = 0.
-The difference between the maximum and minimum value in the third subsequences is 5 - 5 = 0.
-Since three subsequences were created, we return 3. It can be shown that 3 is the minimum number of subsequences needed.
+**Explanation:**
+
+Change `s[2]` from `'S'` to `'N'`. The string `s` becomes `"NWNE"`.
+
+Movement
+Position (x, y)
+Manhattan Distance
+Maximum
+
+s[0] == 'N'
+(0, 1)
+0 + 1 = 1
+1
+
+s[1] == 'W'
+(-1, 1)
+1 + 1 = 2
+2
+
+s[2] == 'N'
+(-1, 2)
+1 + 2 = 3
+3
+
+s[3] == 'E'
+(0, 2)
+0 + 2 = 2
+3
+
+The maximum Manhattan distance from the origin that can be achieved is 3. Hence, 3 is the output.
+
+**Example 2:**
+
+**Input:** s = "NSWWEW", k = 3
+
+**Output:** 6
+
+**Explanation:**
+
+Change `s[1]` from `'S'` to `'N'`, and `s[4]` from `'E'` to `'W'`. The string `s` becomes `"NNWWWW"`.
+
+The maximum Manhattan distance from the origin that can be achieved is 6. Hence, 6 is the output.
 
 **Constraints:**
 
-`1 ≤ nums.length ≤ 10⁵`
+`1 ≤ s.length ≤ 10⁵`
 
-`0 ≤ nums[i] ≤ 10⁵`
+`0 ≤ k ≤ s.length`
 
-`0 ≤ k ≤ 10⁵`
+`s` consists of only `'N'`, `'S'`, `'E'`, and `'W'`.
 
 ---
 
@@ -69,7 +91,7 @@ Since three subsequences were created, we return 3. It can be shown that 3 is th
 
 ```rust
 impl Solution {
-    pub fn partition_array(nums: Vec<i32>, k: i32) -> i32 {
+    pub fn max_distance(s: String, k: i32) -> i32 {
         
     }
 }
@@ -81,7 +103,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/partition-array-such-that-maximum-difference-is-k/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/maximum-manhattan-distance-after-k-changes/)
 
 </div>
 
