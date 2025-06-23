@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 22, 2025 | **Language:** Rust
+> **Updated:** June 23, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Divide a String Into Groups of Size k**
+## 📋 Today's Challenge: **Sum of k-Mirror Numbers**
 
 <div align="center">
 
@@ -12,49 +12,62 @@
 
 </div>
 
-A string `s` can be partitioned into groups of size `k` using the following procedure:
+A **k-mirror number** is a **positive** integer **without leading zeros** that reads the same both forward and backward in base-10 **as well as** in base-k.
 
-The first group consists of the first `k` characters of the string, the second group consists of the next `k` characters of the string, and so on. Each element can be a part of **exactly one** group.
+For example, `9` is a 2-mirror number. The representation of `9` in base-10 and base-2 are `9` and `1001` respectively, which read the same both forward and backward.
 
-For the last group, if the string **does not** have `k` characters remaining, a character `fill` is used to complete the group.
+On the contrary, `4` is not a 2-mirror number. The representation of `4` in base-2 is `10^0`, which does not read the same both forward and backward.
 
-Note that the partition is done so that after removing the `fill` character from the last group (if it exists) and concatenating all the groups in order, the resultant string should be `s`.
-
-Given the string `s`, the size of each group `k` and the character `fill`, return *a string array denoting the **composition of every group** *`s`* has been divided into, using the above procedure*.
+Given the base `k` and the number `n`, return *the **∑** of the* `n` ***smallest** k-mirror numbers*.
 
 **Example 1:**
 
-**Input:** s = "abcdefghi", k = 3, fill = "x"
+**Input:** k = 2, n = 5
 
-**Output:** ["abc","def","ghi"]
+**Output:** 25
 
 Explanation:
-The first 3 characters "abc" form the first group.
-The next 3 characters "def" form the second group.
-The last 3 characters "ghi" form the third group.
-Since all groups can be completely filled by characters from the string, we do not need to use fill.
-Thus, the groups formed are "abc", "def", and "ghi".
+The 5 smallest 2-mirror numbers and their representations in base-2 are listed as follows:
+base-10 base-2
+1 1
+3 11
+5 10^1
+7 111
+9 1001
+Their ∑ = 1 + 3 + 5 + 7 + 9 = 25.
 
 **Example 2:**
 
-**Input:** s = "abcdefghij", k = 3, fill = "x"
+**Input:** k = 3, n = 7
 
-**Output:** ["abc","def","ghi","jxx"]
+**Output:** 499
 
 Explanation:
-Similar to the previous example, we are forming the first three groups "abc", "def", and "ghi".
-For the last group, we can only use the character 'j' from the string. To complete this group, we add 'x' twice.
-Thus, the 4 groups formed are "abc", "def", "ghi", and "jxx".
+The 7 smallest 3-mirror numbers are and their representations in base-3 are listed as follows:
+base-10 base-3
+1 1
+2 2
+4 11
+8 22
+121 11111
+151 12121
+212 21212
+Their ∑ = 1 + 2 + 4 + 8 + 121 + 151 + 212 = 499.
+
+**Example 3:**
+
+**Input:** k = 7, n = 17
+
+**Output:** 20379000
+
+Explanation: The 17 smallest 7-mirror numbers are:
+1, 2, 3, 4, 5, 6, 8, 121, 171, 242, 292, 16561, 65656, 2137312, 4602064, 6597956, 6958596
 
 **Constraints:**
 
-`1 ≤ s.length ≤ 10^0`
+`2 ≤ k ≤ 9`
 
-`s` consists of lowercase English letters only.
-
-`1 ≤ k ≤ 10^0`
-
-`fill` is a lowercase English letter.
+`1 ≤ n ≤ 30`
 
 ---
 
@@ -62,7 +75,7 @@ Thus, the 4 groups formed are "abc", "def", "ghi", and "jxx".
 
 ```rust
 impl Solution {
-    pub fn divide_string(s: String, k: i32, fill: char) -> Vec<String> {
+    pub fn k_mirror(k: i32, n: i32) -> i64 {
         
     }
 }
@@ -74,7 +87,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/divide-a-string-into-groups-of-size-k/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/sum-of-k-mirror-numbers/)
 
 </div>
 
