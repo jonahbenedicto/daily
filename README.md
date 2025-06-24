@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 23, 2025 | **Language:** Rust
+> **Updated:** June 24, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Sum of k-Mirror Numbers**
+## 📋 Today's Challenge: **Find All K-Distant Indices in an Array**
 
 <div align="center">
 
@@ -12,62 +12,44 @@
 
 </div>
 
-A **k-mirror number** is a **positive** integer **without leading zeros** that reads the same both forward and backward in base-10 **as well as** in base-k.
+You are given a **0-indexed** integer array `nums` and two integers `key` and `k`. A **k-distant index** is an index `i` of `nums` for which there exists at least one index `j` such that `|i - j| ≤ k` and `nums[j] == key`.
 
-For example, `9` is a 2-mirror number. The representation of `9` in base-10 and base-2 are `9` and `1001` respectively, which read the same both forward and backward.
-
-On the contrary, `4` is not a 2-mirror number. The representation of `4` in base-2 is `10^0`, which does not read the same both forward and backward.
-
-Given the base `k` and the number `n`, return *the **∑** of the* `n` ***smallest** k-mirror numbers*.
+Return *a list of all k-distant indices sorted in **increasing order***.
 
 **Example 1:**
 
-**Input:** k = 2, n = 5
+**Input:** nums = [3,4,9,1,3,9,5], key = 9, k = 1
 
-**Output:** 25
+**Output:** [1,2,3,4,5,6]
 
-Explanation:
-The 5 smallest 2-mirror numbers and their representations in base-2 are listed as follows:
-base-10 base-2
-1 1
-3 11
-5 10^1
-7 111
-9 1001
-Their ∑ = 1 + 3 + 5 + 7 + 9 = 25.
+Explanation: Here, nums[2] == key and nums[5] == key.
+- For index 0, |0 - 2| > k and |0 - 5| > k, so there is no j where |0 - j| ≤ k and nums[j] == key. Thus, 0 is not a k-distant index.
+- For index 1, |1 - 2| ≤ k and nums[2] == key, so 1 is a k-distant index.
+- For index 2, |2 - 2| ≤ k and nums[2] == key, so 2 is a k-distant index.
+- For index 3, |3 - 2| ≤ k and nums[2] == key, so 3 is a k-distant index.
+- For index 4, |4 - 5| ≤ k and nums[5] == key, so 4 is a k-distant index.
+- For index 5, |5 - 5| ≤ k and nums[5] == key, so 5 is a k-distant index.
+- For index 6, |6 - 5| ≤ k and nums[5] == key, so 6 is a k-distant index.
+Thus, we return [1,2,3,4,5,6] which is sorted in increasing order.
 
 **Example 2:**
 
-**Input:** k = 3, n = 7
+**Input:** nums = [2,2,2,2,2], key = 2, k = 2
 
-**Output:** 499
+**Output:** [0,1,2,3,4]
 
-Explanation:
-The 7 smallest 3-mirror numbers are and their representations in base-3 are listed as follows:
-base-10 base-3
-1 1
-2 2
-4 11
-8 22
-121 11111
-151 12121
-212 21212
-Their ∑ = 1 + 2 + 4 + 8 + 121 + 151 + 212 = 499.
-
-**Example 3:**
-
-**Input:** k = 7, n = 17
-
-**Output:** 20379000
-
-Explanation: The 17 smallest 7-mirror numbers are:
-1, 2, 3, 4, 5, 6, 8, 121, 171, 242, 292, 16561, 65656, 2137312, 4602064, 6597956, 6958596
+Explanation: For all indices i in nums, there exists some index j such that |i - j| ≤ k and nums[j] == key, so every index is a k-distant index.
+Hence, we return [0,1,2,3,4].
 
 **Constraints:**
 
-`2 ≤ k ≤ 9`
+`1 ≤ nums.length ≤ 1000`
 
-`1 ≤ n ≤ 30`
+`1 ≤ nums[i] ≤ 1000`
+
+`key` is an integer from the array `nums`.
+
+`1 ≤ k ≤ nums.length`
 
 ---
 
@@ -75,7 +57,7 @@ Explanation: The 17 smallest 7-mirror numbers are:
 
 ```rust
 impl Solution {
-    pub fn k_mirror(k: i32, n: i32) -> i64 {
+    pub fn find_k_distant_indices(nums: Vec<i32>, key: i32, k: i32) -> Vec<i32> {
         
     }
 }
@@ -87,7 +69,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/sum-of-k-mirror-numbers/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/find-all-k-distant-indices-in-an-array/)
 
 </div>
 
