@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 25, 2025 | **Language:** Rust
+> **Updated:** June 26, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Kth Smallest Product of Two Sorted Arrays**
+## 📋 Today's Challenge: **Longest Binary Subsequence Less Than or Equal to K**
 
 <div align="center">
 
@@ -12,55 +12,44 @@
 
 </div>
 
-Given two **sorted 0-indexed** integer arrays `nums1` and `nums2` as well as an integer `k`, return *the *`kᵗʰ`* (**1-based**) smallest ∏ of *`nums1[i] * nums2[j]`* where *`0 ≤ i < nums1.length`* and *`0 ≤ j < nums2.length`.
+You are given a binary string `s` and a positive integer `k`.
+
+Return *the length of the **longest** subsequence of *`s`* that makes up a **binary** number less than or equal to* `k`.
+
+Note:
+
+The subsequence can contain **leading zeroes**.
+
+The empty string is considered to be equal to `0`.
+
+A **subsequence** is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.
 
 **Example 1:**
 
-**Input:** nums1 = [2,5], nums2 = [3,4], k = 2
+**Input:** s = "1001010", k = 5
 
-**Output:** 8
+**Output:** 5
 
-Explanation: The 2 smallest products are:
-- nums1[0] * nums2[0] = 2 * 3 = 6
-- nums1[0] * nums2[1] = 2 * 4 = 8
-The 2ⁿd smallest ∏ is 8.
+Explanation: The longest subsequence of s that makes up a binary number less than or equal to 5 is "00010", as this number is equal to 2 in decimal.
+Note that "0010^0" and "0010^1" are also possible, which are equal to 4 and 5 in decimal, respectively.
+The length of this subsequence is 5, so 5 is returned.
 
 **Example 2:**
 
-**Input:** nums1 = [-4,-2,0,3], nums2 = [2,4], k = 6
+**Input:** s = "00101001", k = 1
 
-**Output:** 0
+**Output:** 6
 
-Explanation: The 6 smallest products are:
-- nums1[0] * nums2[1] = (-4) * 4 = -16
-- nums1[0] * nums2[0] = (-4) * 2 = -8
-- nums1[1] * nums2[1] = (-2) * 4 = -8
-- nums1[1] * nums2[0] = (-2) * 2 = -4
-- nums1[2] * nums2[0] = 0 * 2 = 0
-- nums1[2] * nums2[1] = 0 * 4 = 0
-The 6ᵗʰ smallest ∏ is 0.
-
-**Example 3:**
-
-**Input:** nums1 = [-2,-1,0,1,2], nums2 = [-3,-1,2,4,5], k = 3
-
-**Output:** -6
-
-Explanation: The 3 smallest products are:
-- nums1[0] * nums2[4] = (-2) * 5 = -10
-- nums1[0] * nums2[3] = (-2) * 4 = -8
-- nums1[4] * nums2[0] = 2 * (-3) = -6
-The 3rd smallest ∏ is -6.
+Explanation: "000001" is the longest subsequence of s that makes up a binary number less than or equal to 1, as this number is equal to 1 in decimal.
+The length of this subsequence is 6, so 6 is returned.
 
 **Constraints:**
 
-`1 ≤ nums1.length, nums2.length ≤ 5 * 10⁴`
+`1 ≤ s.length ≤ 1000`
 
-`-10⁵ ≤ nums1[i], nums2[j] ≤ 10⁵`
+`s[i]` is either `'0'` or `'1'`.
 
-`1 ≤ k ≤ nums1.length * nums2.length`
-
-`nums1` and `nums2` are sorted.
+`1 ≤ k ≤ 10⁹`
 
 ---
 
@@ -68,7 +57,7 @@ The 3rd smallest ∏ is -6.
 
 ```rust
 impl Solution {
-    pub fn kth_smallest_product(nums1: Vec<i32>, nums2: Vec<i32>, k: i64) -> i64 {
+    pub fn longest_subsequence(s: String, k: i32) -> i32 {
         
     }
 }
@@ -80,7 +69,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/kth-smallest-product-of-two-sorted-arrays/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/longest-binary-subsequence-less-than-or-equal-to-k/)
 
 </div>
 
