@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 26, 2025 | **Language:** Rust
+> **Updated:** June 27, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Longest Binary Subsequence Less Than or Equal to K**
+## 📋 Today's Challenge: **Longest Subsequence Repeated k Times**
 
 <div align="center">
 
@@ -12,44 +12,52 @@
 
 </div>
 
-You are given a binary string `s` and a positive integer `k`.
-
-Return *the length of the **longest** subsequence of *`s`* that makes up a **binary** number less than or equal to* `k`.
-
-Note:
-
-The subsequence can contain **leading zeroes**.
-
-The empty string is considered to be equal to `0`.
+You are given a string `s` of length `n`, and an integer `k`. You are tasked to find the **longest subsequence repeated** `k` times in string `s`.
 
 A **subsequence** is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.
 
+A subsequence `seq` is **repeated** `k` times in the string `s` if `seq * k` is a subsequence of `s`, where `seq * k` represents a string constructed by concatenating `seq` `k` times.
+
+For example, `"bba"` is repeated `2` times in the string `"bababcba"`, because the string `"bbabba"`, constructed by concatenating `"bba"` `2` times, is a subsequence of the string `"** b **a** bab **c** ba **"`.
+
+Return *the **longest subsequence repeated** *`k`* times in string *`s`*. If multiple such subsequences are found, return the **lexicographically largest** one. If there is no such subsequence, return an **empty** string*.
+
 **Example 1:**
 
-**Input:** s = "1001010", k = 5
+![example 1](https://assets.leetcode.com/uploads/2021/08/30/longest-subsequence-repeat-k-times.png)
 
-**Output:** 5
+**Input:** s = "letsleetcode", k = 2
 
-Explanation: The longest subsequence of s that makes up a binary number less than or equal to 5 is "00010", as this number is equal to 2 in decimal.
-Note that "0010^0" and "0010^1" are also possible, which are equal to 4 and 5 in decimal, respectively.
-The length of this subsequence is 5, so 5 is returned.
+**Output:** "let"
+
+Explanation: There are two longest subsequences repeated 2 times: "let" and "ete".
+"let" is the lexicographically largest one.
 
 **Example 2:**
 
-**Input:** s = "00101001", k = 1
+**Input:** s = "bb", k = 2
 
-**Output:** 6
+**Output:** "b"
 
-Explanation: "000001" is the longest subsequence of s that makes up a binary number less than or equal to 1, as this number is equal to 1 in decimal.
-The length of this subsequence is 6, so 6 is returned.
+Explanation: The longest subsequence repeated 2 times is "b".
+
+**Example 3:**
+
+**Input:** s = "ab", k = 2
+
+**Output:** ""
+
+Explanation: There is no subsequence repeated 2 times. Empty string is returned.
 
 **Constraints:**
 
-`1 ≤ s.length ≤ 1000`
+`n == s.length`
 
-`s[i]` is either `'0'` or `'1'`.
+`2 ≤ n, k ≤ 2000`
 
-`1 ≤ k ≤ 10⁹`
+`2 ≤ n < k * 8`
+
+`s` consists of lowercase English letters.
 
 ---
 
@@ -57,7 +65,7 @@ The length of this subsequence is 6, so 6 is returned.
 
 ```rust
 impl Solution {
-    pub fn longest_subsequence(s: String, k: i32) -> i32 {
+    pub fn longest_subsequence_repeated_k(s: String, k: i32) -> String {
         
     }
 }
@@ -69,7 +77,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/longest-binary-subsequence-less-than-or-equal-to-k/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/longest-subsequence-repeated-k-times/)
 
 </div>
 
