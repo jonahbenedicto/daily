@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 27, 2025 | **Language:** Rust
+> **Updated:** June 28, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Longest Subsequence Repeated k Times**
+## 📋 Today's Challenge: **Find Subsequence of Length K With the Largest Sum**
 
 <div align="center">
 
@@ -12,52 +12,47 @@
 
 </div>
 
-You are given a string `s` of length `n`, and an integer `k`. You are tasked to find the **longest subsequence repeated** `k` times in string `s`.
+You are given an integer array `nums` and an integer `k`. You want to find a **subsequence **of `nums` of length `k` that has the **largest** ∑.
 
-A **subsequence** is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.
+Return* ****any** such subsequence as an integer array of length *`k`.
 
-A subsequence `seq` is **repeated** `k` times in the string `s` if `seq * k` is a subsequence of `s`, where `seq * k` represents a string constructed by concatenating `seq` `k` times.
-
-For example, `"bba"` is repeated `2` times in the string `"bababcba"`, because the string `"bbabba"`, constructed by concatenating `"bba"` `2` times, is a subsequence of the string `"** b **a** bab **c** ba **"`.
-
-Return *the **longest subsequence repeated** *`k`* times in string *`s`*. If multiple such subsequences are found, return the **lexicographically largest** one. If there is no such subsequence, return an **empty** string*.
+A **subsequence** is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.
 
 **Example 1:**
 
-![example 1](https://assets.leetcode.com/uploads/2021/08/30/longest-subsequence-repeat-k-times.png)
+**Input:** nums = [2,1,3,3], k = 2
 
-**Input:** s = "letsleetcode", k = 2
+**Output:** [3,3]
 
-**Output:** "let"
-
-Explanation: There are two longest subsequences repeated 2 times: "let" and "ete".
-"let" is the lexicographically largest one.
+Explanation:
+The subsequence has the largest ∑ of 3 + 3 = 6.
 
 **Example 2:**
 
-**Input:** s = "bb", k = 2
+**Input:** nums = [-1,-2,3,4], k = 3
 
-**Output:** "b"
+**Output:** [-1,3,4]
 
-Explanation: The longest subsequence repeated 2 times is "b".
+Explanation:
+The subsequence has the largest ∑ of -1 + 3 + 4 = 6.
 
 **Example 3:**
 
-**Input:** s = "ab", k = 2
+**Input:** nums = [3,4,3,3], k = 2
 
-**Output:** ""
+**Output:** [3,4]
 
-Explanation: There is no subsequence repeated 2 times. Empty string is returned.
+Explanation:
+The subsequence has the largest ∑ of 3 + 4 = 7.
+Another possible subsequence is [4, 3].
 
 **Constraints:**
 
-`n == s.length`
+`1 ≤ nums.length ≤ 1000`
 
-`2 ≤ n, k ≤ 2000`
+`-10⁵ ≤ nums[i] ≤ 10⁵`
 
-`2 ≤ n < k * 8`
-
-`s` consists of lowercase English letters.
+`1 ≤ k ≤ nums.length`
 
 ---
 
@@ -65,7 +60,7 @@ Explanation: There is no subsequence repeated 2 times. Empty string is returned.
 
 ```rust
 impl Solution {
-    pub fn longest_subsequence_repeated_k(s: String, k: i32) -> String {
+    pub fn max_subsequence(nums: Vec<i32>, k: i32) -> Vec<i32> {
         
     }
 }
@@ -77,7 +72,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/longest-subsequence-repeated-k-times/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/find-subsequence-of-length-k-with-the-largest-sum/)
 
 </div>
 
