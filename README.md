@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 28, 2025 | **Language:** Rust
+> **Updated:** June 29, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Find Subsequence of Length K With the Largest Sum**
+## 📋 Today's Challenge: **Number of Subsequences That Satisfy the Given Sum Condition**
 
 <div align="center">
 
@@ -12,47 +12,47 @@
 
 </div>
 
-You are given an integer array `nums` and an integer `k`. You want to find a **subsequence **of `nums` of length `k` that has the **largest** ∑.
+You are given an array of integers `nums` and an integer `target`.
 
-Return* ****any** such subsequence as an integer array of length *`k`.
-
-A **subsequence** is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.
+Return *the number of **non-empty** subsequences of *`nums`* such that the ∑ of the minimum and maximum element on it is less or equal to *`target`. Since the answer may be too large, return it **modulo** `10⁹ + 7`.
 
 **Example 1:**
 
-**Input:** nums = [2,1,3,3], k = 2
+**Input:** nums = [3,5,6,7], target = 9
 
-**Output:** [3,3]
+**Output:** 4
 
-Explanation:
-The subsequence has the largest ∑ of 3 + 3 = 6.
+Explanation: There are 4 subsequences that satisfy the condition.
+[3] -> Min value + max value ≤ target (3 + 3 ≤ 9)
+[3,5] -> (3 + 5 ≤ 9)
+[3,5,6] -> (3 + 6 ≤ 9)
+[3,6] -> (3 + 6 ≤ 9)
 
 **Example 2:**
 
-**Input:** nums = [-1,-2,3,4], k = 3
+**Input:** nums = [3,3,6,8], target = 10
 
-**Output:** [-1,3,4]
+**Output:** 6
 
-Explanation:
-The subsequence has the largest ∑ of -1 + 3 + 4 = 6.
+Explanation: There are 6 subsequences that satisfy the condition. (nums can have repeated numbers).
+[3] , [3] , [3,3], [3,6] , [3,6] , [3,3,6]
 
 **Example 3:**
 
-**Input:** nums = [3,4,3,3], k = 2
+**Input:** nums = [2,3,3,4,6,7], target = 12
 
-**Output:** [3,4]
+**Output:** 61
 
-Explanation:
-The subsequence has the largest ∑ of 3 + 4 = 7.
-Another possible subsequence is [4, 3].
+Explanation: There are 63 non-empty subsequences, two of them do not satisfy the condition ([6,7], [7]).
+Number of valid subsequences (63 - 2 = 61).
 
 **Constraints:**
 
-`1 ≤ nums.length ≤ 1000`
+`1 ≤ nums.length ≤ 10⁵`
 
-`-10⁵ ≤ nums[i] ≤ 10⁵`
+`1 ≤ nums[i] ≤ 10⁶`
 
-`1 ≤ k ≤ nums.length`
+`1 ≤ target ≤ 10⁶`
 
 ---
 
@@ -60,7 +60,7 @@ Another possible subsequence is [4, 3].
 
 ```rust
 impl Solution {
-    pub fn max_subsequence(nums: Vec<i32>, k: i32) -> Vec<i32> {
+    pub fn num_subseq(nums: Vec<i32>, target: i32) -> i32 {
         
     }
 }
@@ -72,7 +72,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/find-subsequence-of-length-k-with-the-largest-sum/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/)
 
 </div>
 
