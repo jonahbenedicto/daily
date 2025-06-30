@@ -1,10 +1,10 @@
 # 🎯 Daily LeetCode Problem
 
-> **Updated:** June 29, 2025 | **Language:** Rust
+> **Updated:** June 30, 2025 | **Language:** Rust
 
 ---
 
-## 📋 Today's Challenge: **Number of Subsequences That Satisfy the Given Sum Condition**
+## 📋 Today's Challenge: **Longest Harmonious Subsequence**
 
 <div align="center">
 
@@ -12,47 +12,45 @@
 
 </div>
 
-You are given an array of integers `nums` and an integer `target`.
+We define a harmonious array as an array where the difference between its maximum value and its minimum value is **exactly** `1`.
 
-Return *the number of **non-empty** subsequences of *`nums`* such that the ∑ of the minimum and maximum element on it is less or equal to *`target`. Since the answer may be too large, return it **modulo** `10⁹ + 7`.
+Given an integer array `nums`, return the length of its longest harmonious subsequence among all its possible subsequences.
 
 **Example 1:**
 
-**Input:** nums = [3,5,6,7], target = 9
+**Input:** nums = [1,3,2,2,5,2,3,7]
 
-**Output:** 4
+**Output:** 5
 
-Explanation: There are 4 subsequences that satisfy the condition.
-[3] -> Min value + max value ≤ target (3 + 3 ≤ 9)
-[3,5] -> (3 + 5 ≤ 9)
-[3,5,6] -> (3 + 6 ≤ 9)
-[3,6] -> (3 + 6 ≤ 9)
+**Explanation:**
+
+The longest harmonious subsequence is `[3,2,2,2,3]`.
 
 **Example 2:**
 
-**Input:** nums = [3,3,6,8], target = 10
+**Input:** nums = [1,2,3,4]
 
-**Output:** 6
+**Output:** 2
 
-Explanation: There are 6 subsequences that satisfy the condition. (nums can have repeated numbers).
-[3] , [3] , [3,3], [3,6] , [3,6] , [3,3,6]
+**Explanation:**
+
+The longest harmonious subsequences are `[1,2]`, `[2,3]`, and `[3,4]`, all of which have a length of 2.
 
 **Example 3:**
 
-**Input:** nums = [2,3,3,4,6,7], target = 12
+**Input:** nums = [1,1,1,1]
 
-**Output:** 61
+**Output:** 0
 
-Explanation: There are 63 non-empty subsequences, two of them do not satisfy the condition ([6,7], [7]).
-Number of valid subsequences (63 - 2 = 61).
+**Explanation:**
+
+No harmonic subsequence exists.
 
 **Constraints:**
 
-`1 ≤ nums.length ≤ 10⁵`
+`1 ≤ nums.length ≤ 2 * 10⁴`
 
-`1 ≤ nums[i] ≤ 10⁶`
-
-`1 ≤ target ≤ 10⁶`
+`-10⁹ ≤ nums[i] ≤ 10⁹`
 
 ---
 
@@ -60,7 +58,7 @@ Number of valid subsequences (63 - 2 = 61).
 
 ```rust
 impl Solution {
-    pub fn num_subseq(nums: Vec<i32>, target: i32) -> i32 {
+    pub fn find_lhs(nums: Vec<i32>) -> i32 {
         
     }
 }
@@ -72,7 +70,7 @@ impl Solution {
 
 ## 🔗 Quick Actions
 
-[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/)
+[![Solve on LeetCode](https://img.shields.io/badge/Solve_on-LeetCode-orange?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/problems/longest-harmonious-subsequence/)
 
 </div>
 
